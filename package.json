@@ -1,0 +1,16 @@
+{
+  "name": "naukri-automation",
+  "version": "1.0.0",
+  "description": "Naukri.com login and profile edit automation",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "naukri": "node index.js"
+  },
+  "keywords": ["naukri", "automation", "playwright"],
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "playwright": "^1.40.0"
+  }
+}
