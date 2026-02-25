@@ -4,7 +4,7 @@
  */
 
 require('dotenv').config();
-const { chromium } = require('playwright'); zz
+const { chromium } = require('playwright'); 
 
 const HOMEPAGE_URL = 'https://www.naukri.com/mnjuser/homepage';
 const NAUKRI_BASE = 'https://www.naukri.com';
