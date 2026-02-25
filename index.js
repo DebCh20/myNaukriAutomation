@@ -10,8 +10,11 @@ const HOMEPAGE_URL = 'https://www.naukri.com/mnjuser/homepage';
 const NAUKRI_BASE = 'https://www.naukri.com';
 
 async function run() {
-  const username = process.env.NAUKRI_USERNAME 
+  const username = process.env.NAUKRI_USERNAME;
   const password = process.env.NAUKRI_PASSWORD;
+
+  console.log('username present?', Boolean(username));
+  console.log('password present?', Boolean(password));
 
   if (!username || !password) {
     console.error('Missing NAUKRI_USERNAME (or NAUKRI_USERID) or NAUKRI_PASSWORD in environment.');
