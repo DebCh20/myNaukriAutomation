@@ -4,17 +4,14 @@
  */
 
 require('dotenv').config();
-const { chromium } = require('playwright');
+const { chromium } = require('playwright'); zz
 
 const HOMEPAGE_URL = 'https://www.naukri.com/mnjuser/homepage';
 const NAUKRI_BASE = 'https://www.naukri.com';
 
 async function run() {
-  const username = process.env.NAUKRI_USERNAME;
+  const username = process.env.NAUKRI_USERNAME
   const password = process.env.NAUKRI_PASSWORD;
-
-  console.log('username present?', Boolean(username));
-  console.log('password present?', Boolean(password));
 
   if (!username || !password) {
     console.error('Missing NAUKRI_USERNAME (or NAUKRI_USERID) or NAUKRI_PASSWORD in environment.');
@@ -24,9 +21,11 @@ async function run() {
     process.exit(1);
   }
 
+  const isCi = process.env.CI === 'true';
+
   const browser = await chromium.launch({
-    headless: false,
-    slowMo: 100,
+    headless: isCi,   // headless in CI, headed locally
+    slowMo: isCi ? 0 : 100,
   });
 
   const context = await browser.newContext({
