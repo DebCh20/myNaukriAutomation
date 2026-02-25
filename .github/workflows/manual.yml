@@ -1,8 +1,15 @@
 name: Naukri automation
 
 on:
+  on:
   schedule:
-    - cron: "0 */4 * * *"  # every 4 hours (UTC)
+    # Every 10 minutes between 09:00–11:00 IST (03:30–05:30 UTC)
+    - cron: "30-50/10 3 * * *"  # 03:30, 03:40, 03:50 UTC  (09:00–09:20 IST)
+    - cron: "*/10 4 * * *"      # 04:00–04:50 UTC         (09:30–10:20 IST)
+    - cron: "0-20/10 5 * * *"   # 05:00, 05:10, 05:20 UTC (10:30–10:50 IST)
+
+    # Otherwise every 6 hours (00:00, 06:00, 12:00, 18:00 UTC)
+    - cron: "0 0,6,12,18 * * *"
   workflow_dispatch:
 jobs:
   run-naukri:
