@@ -4,7 +4,7 @@
  */
 
 require('dotenv').config();
-const { chromium } = require('playwright'); 
+const { chromium } = require('playwright');
 
 const HOMEPAGE_URL = 'https://www.naukri.com/mnjuser/homepage';
 const NAUKRI_BASE = 'https://www.naukri.com';
@@ -78,7 +78,10 @@ async function run() {
     }
 
     // 5) Click "View profile" (or "My Profile" / "View Profile")
+    console.log('URL before View profile:', page.url());
     console.log('Looking for View profile / My Profile...');
+    await page.screenshot({ path: 'after-login.png', fullPage: true });
+    console.log('Saved screenshot after-login.png');
     const viewProfileSelectors = [
       'a:has-text("View profile")',
       'a:has-text("View Profile")',

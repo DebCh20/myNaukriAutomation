@@ -41,3 +41,10 @@ jobs:
 
       - name: Run script
         run: node index.js
+
+      - name: Upload screenshot
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: naukri-after-login
+          path: after-login.png  
